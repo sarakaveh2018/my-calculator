@@ -9,10 +9,10 @@ body {
     width: 19rem;
     height: 40rem;
     border-radius: 10px;
-    background-color: rgb(243, 250, 250);
+    background-color: #eef0f2;
 }
 
-.input {
+.screen {
     height: 35%;
     background-color: aquamarine;
     font-size: 2rem;
@@ -25,11 +25,11 @@ body {
     padding: 10px;
 }
 
-.buttons {
+.buttonBox {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    gap: 0.5rem;
+    gap: 0.3rem;
     padding: 0.75rem;
     grid-template-areas:
         'clear openParenthesis closeParenthesis multiple'
@@ -40,7 +40,7 @@ body {
         'dot zero back equal';
 }
 
-.buttons .button {
+.buttonBox .button {
     display: grid;
     place-items: center;
     padding: 0.5rem;
@@ -199,7 +199,7 @@ body {
 }
 
 .white {
-    background-color: #f1f4f5;
+    background-color: #f8f9fa;
     box-shadow: 2px 2px 4px #d6d9dc;
 }
 

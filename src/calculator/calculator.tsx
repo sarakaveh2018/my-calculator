@@ -4,17 +4,17 @@ export const Calculator = () => {
     return (
         <div className={css.container}>
 
-            <div className={css.input}>
+            <div className={css.screen}>
                 input
             </div>
-            <div className={css.buttons}>
+            <div className={css.buttonBox}>
                 <div className={`${css.button} ${css.clear} ${css.orange}`}>C</div>
                 <div className={`${css.button} ${css.openParenthesis} ${css.lightOrange}`}>(</div>
                 <div className={`${css.button} ${css.closeParenthesis} ${css.lightOrange}`}>)</div>
                 <div className={`${css.button} ${css.multiple} ${css.lightPurple}`}>&#215;</div>
-                <div className={`${css.button} ${css.radical} ${css.lightOrange}`}>@</div>
+                <div className={`${css.button} ${css.radical} ${css.lightOrange}`}>&#8730;</div>
                 <div className={`${css.button} ${css.percent} ${css.lightOrange}`}>%</div>
-                <div className={`${css.button} ${css.plusMinus} ${css.lightOrange}`}>+</div>
+                <div className={`${css.button} ${css.plusMinus} ${css.lightOrange}`}>&#xb1;</div>
                 <div className={`${css.button} ${css.divide} ${css.lightPurple}`}>&#247;</div>
                 <div className={`${css.button} ${css.seven} ${css.white}`}>7</div>
                 <div className={`${css.button} ${css.eight} ${css.white}`}>8</div>
