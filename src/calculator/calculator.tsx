@@ -1,3 +1,4 @@
+import { Button } from './button/button';
 import css from './calculator.module.scss';
 import { Result } from './result/result';
 
@@ -7,18 +8,23 @@ const btnValues = [
     [7, 8, 9, "-"],
     [4, 5, 6, "+"],
     [1, 2, 3],
-    [0, ".", "="],
-  ];
+    [".", 0, 'b', "="],
+];
 
 export const Calculator = () => {
     return (
         <div className={css.container}>
             <Result />
-
-            {/* <div className={css.screen}>
-                input
-            </div> */}
             <div className={css.buttonBox}>
+                {
+                    btnValues.flat().map((btn, i) => {
+                        return (
+                            <Button key={i} value={btn} />
+                        )
+
+                    })
+                }
+
                 {/* <div className={`${css.button} ${css.clear} ${css.orange}`}>C</div>
                 <div className={`${css.button} ${css.openParenthesis} ${css.lightOrange}`}>(</div>
                 <div className={`${css.button} ${css.closeParenthesis} ${css.lightOrange}`}>)</div>
