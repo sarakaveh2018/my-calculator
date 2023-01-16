@@ -1,4 +1,5 @@
 import css from './calculator.module.scss';
+import { Result } from './result/result';
 
 const btnValues = [
     ["C", "(", ")", "X"],
@@ -12,12 +13,13 @@ const btnValues = [
 export const Calculator = () => {
     return (
         <div className={css.container}>
+            <Result />
 
-            <div className={css.screen}>
+            {/* <div className={css.screen}>
                 input
-            </div>
+            </div> */}
             <div className={css.buttonBox}>
-                <div className={`${css.button} ${css.clear} ${css.orange}`}>C</div>
+                {/* <div className={`${css.button} ${css.clear} ${css.orange}`}>C</div>
                 <div className={`${css.button} ${css.openParenthesis} ${css.lightOrange}`}>(</div>
                 <div className={`${css.button} ${css.closeParenthesis} ${css.lightOrange}`}>)</div>
                 <div className={`${css.button} ${css.multiple} ${css.lightPurple}`}>&#215;</div>
@@ -39,7 +41,7 @@ export const Calculator = () => {
                 <div className={`${css.button} ${css.equal} ${css.purple}`}>=</div>
                 <div className={`${css.button} ${css.dot} ${css.white}`}>.</div>
                 <div className={`${css.button} ${css.zero} ${css.white}`}>0</div>
-                <div className={`${css.button} ${css.back} ${css.lightGray}`}>^</div>
+                <div className={`${css.button} ${css.back} ${css.lightGray}`}>^</div> */}
             </div>
         </div>
     );
