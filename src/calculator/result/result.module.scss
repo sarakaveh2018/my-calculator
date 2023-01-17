@@ -22,5 +22,8 @@
     letter-spacing: 5px;
     justify-content: end;
     align-items: flex-end;
-    color: var(--color-gray4);
+    font-weight: bold;
+    color: var(--color-gray5);
 }
+
+@import './result.dark.module';
