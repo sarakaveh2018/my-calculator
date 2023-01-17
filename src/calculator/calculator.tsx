@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { Button } from './button/button';
 import css from './calculator.module.scss';
 import { Result } from './result/result';
 
 const btnValues = [
-    ["C", "(", ")", "X"],
-    ["R", "%", "PM", "/"],
+    ["C", "(", ")", "*"],
+    ["R", "%", "+-", "/"],
     [7, 8, 9, "-"],
     [4, 5, 6, "+"],
     [1, 2, 3],
@@ -12,42 +13,80 @@ const btnValues = [
 ];
 
 export const Calculator = () => {
+
+    const [operations, setOperations] = useState<Array<string | number>>([]);
+    const [result, setResult] = useState('0');
+
+    const AddToOperationList = (btn: string | number) => {
+        const clone = [...operations];
+        const lastItemIsNumber = typeof clone.at(-1) === 'number';
+        const lastItemIsSign = typeof clone.at(-1) === 'string';
+
+        if (typeof btn === 'number' && lastItemIsNumber) {
+            const merge = +`${clone.at(-1)}${btn}`;
+            clone.pop();
+            clone.push(merge);
+        } else if (typeof btn === 'string' && lastItemIsSign) {
+            clone.pop();
+            clone.push(btn);
+        }
+        else {
+            clone.push(btn);
+        }
+        setOperations(clone);
+    }
+
+    const calculateResult = (values: Array<string | number>): string => {
+        const clone = [...values];
+        if (typeof clone.at(-1) === 'string') {
+            clone.pop();
+        }
+        return JSON.stringify(eval(clone.join('')));
+    }
+
+    const removeLastItem = (values: Array<string | number>): Array<string | number> => {
+        const clone = [...values];
+        clone.pop();
+        return clone;
+    }
+
+    const onBtnClick = (btn: string | number) => {
+        const firstBtnIsSign = operations.length === 0 && typeof btn === 'string';
+
+        if (firstBtnIsSign) {
+            return;
+        }
+
+        switch (btn) {
+            case '=':
+                const calculatedResult = calculateResult(operations);
+                setResult(calculatedResult);
+                break;
+            case 'C':
+                setOperations([]);
+                setResult('0');
+                break;
+            case 'b':
+                const newList = removeLastItem(operations);
+                setOperations(newList);
+                break;
+            default:
+                AddToOperationList(btn);
+                break;
+        }
+    }
+
     return (
         <div className={css.container}>
-            <Result />
+            <Result operations={operations.join('')} result={result} />
             <div className={css.buttonBox}>
                 {
-                    btnValues.flat().map((btn, i) => {
+                    btnValues.flat().map((btn) => {
                         return (
-                            <Button key={i} value={btn} />
+                            <Button key={btn} value={btn} onClick={onBtnClick} />
                         )
-
                     })
                 }
-
-                {/* <div className={`${css.button} ${css.clear} ${css.orange}`}>C</div>
-                <div className={`${css.button} ${css.openParenthesis} ${css.lightOrange}`}>(</div>
-                <div className={`${css.button} ${css.closeParenthesis} ${css.lightOrange}`}>)</div>
-                <div className={`${css.button} ${css.multiple} ${css.lightPurple}`}>&#215;</div>
-                <div className={`${css.button} ${css.radical} ${css.lightOrange}`}>&#8730;</div>
-                <div className={`${css.button} ${css.percent} ${css.lightOrange}`}>%</div>
-                <div className={`${css.button} ${css.plusMinus} ${css.lightOrange}`}>&#xb1;</div>
-                <div className={`${css.button} ${css.divide} ${css.lightPurple}`}>&#247;</div>
-                <div className={`${css.button} ${css.seven} ${css.white}`}>7</div>
-                <div className={`${css.button} ${css.eight} ${css.white}`}>8</div>
-                <div className={`${css.button} ${css.nine} ${css.white}`}>9</div>
-                <div className={`${css.button} ${css.minus} ${css.lightPurple}`}>-</div>
-                <div className={`${css.button} ${css.four} ${css.white}`}>4</div>
-                <div className={`${css.button} ${css.five} ${css.white}`}>5</div>
-                <div className={`${css.button} ${css.six} ${css.white}`}>6</div>
-                <div className={`${css.button} ${css.plus} ${css.lightPurple}`}>+</div>
-                <div className={`${css.button} ${css.one} ${css.white}`}>1</div>
-                <div className={`${css.button} ${css.two} ${css.white}`}>2</div>
-                <div className={`${css.button} ${css.three} ${css.white}`}>3</div>
-                <div className={`${css.button} ${css.equal} ${css.purple}`}>=</div>
-                <div className={`${css.button} ${css.dot} ${css.white}`}>.</div>
-                <div className={`${css.button} ${css.zero} ${css.white}`}>0</div>
-                <div className={`${css.button} ${css.back} ${css.lightGray}`}>^</div> */}
             </div>
         </div>
     );

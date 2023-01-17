@@ -6,14 +6,13 @@
     font-size: 1.5rem;
     transition: all 0.5s;
     border-radius: 50%;
-    width: 50px;
-    background-color: blueviolet;
+    width: 45px;
+    cursor: pointer;
 }
 
 .equals {
     grid-row: 5 / span 2;
     grid-column: 4 / 5;
-    background-color: rgb(243, 61, 29);
     border-radius: 50px;
 }
 

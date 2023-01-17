@@ -1,3 +1,4 @@
 export interface ResultProps {
-    value: string;
+    result: string;
+    operations: string;
 }
