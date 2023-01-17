@@ -1,4 +1,5 @@
 :root {
+    --color-bg-root: #ebeff0;
     --color-bg: #fafafa;
     --text-color: #7d8e96;
     --color-purple: #9d2cf5;
@@ -17,6 +18,7 @@
 }
 
 [data-theme="dark"] {
+    --color-bg-root: #272b2e;
     --color-bg: #313438;
     --text-color: #899396;
     --color-purple: #962cea;

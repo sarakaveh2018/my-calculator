@@ -26,6 +26,12 @@ body {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #e3e7eb;
+    background-color: var(--color-bg-root);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: var(--color-bg-root);
   }
 }
