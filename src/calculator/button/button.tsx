@@ -4,30 +4,44 @@ import { ButtonProps } from './button.types';
 export const Button = ({ value, onClick }: ButtonProps): JSX.Element => {
 
     const convertSymbol = (value: string | number) => {
-        if (value === '*') {
-            return <>&#215;</>
-        }
-        if (value === 'R') {
-            return <>&#8730;</>
-        }
-        if (value === '/') {
-            return <>&#247;</>
-        }
-        if (value === '+-') {
-            return <>&#xb1;</>
-        } else {
-            return value
+        switch (value) {
+            case '*':
+                return <>&#215;</>;
+            case 'R':
+                return <>&#8730;</>
+            case '/':
+                return <>&#247;</>
+            case '+-':
+                return <>&#xb1;</>
+            default:
+                return value;
         }
     }
 
+    const setClassName = (value: string | number) => {
+        switch (value) {
+            case '=':
+                return css.equals;
+            case 'C':
+                return css.clear;
+            case 'R':
+            case '(':
+            case ')':
+            case '+-':
+            case '%':
+                return css.proSymbol;
+            case '*':
+            case '/':
+            case '-':
+            case '+':
+                return css.mainSymbol;
+            case 'b':
+                return css.backspace
+            default:
+                return css.numbers;
+        }
+    }
     return (
-        <div onClick={() =>
-            onClick(value)} className={`${css.button} 
-        ${value === "="
-                    ? `${css.equals}` : value === "C"
-                        ? css.clear : value === "R" || value === "(" || value === ")" || value === '+-' || value === '%'
-                            ? css.proSymbol : value === "*" || value === "/" || value === '-' || value === '+'
-                                ? css.mainSymbol : value === 'b'
-                                    ? css.backspace : css.numbers}`}>{convertSymbol(value)}</div>
+        <div onClick={() => onClick(value)} className={`${css.button} ${setClassName(value)}`}>{convertSymbol(value)}</div>
     );
 }
