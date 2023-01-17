@@ -1,5 +1,6 @@
 .switch {
     display: inline-flex;
+    margin: 10px;
 }
 
 .switch input[type="checkbox"] {
@@ -8,21 +9,21 @@
     visibility: hidden;
 }
 
-.switch input[type="checkbox"]:checked + label {
-    background: yellow;
+.switch input[type="checkbox"]:checked+label {
+    background-color: #404246;
     transition: 80ms ease;
 }
 
-.switch input[type="checkbox"]:checked + label::after {
+.switch input[type="checkbox"]:checked+label::after {
     left: calc(100% - 4px);
     transform: translateX(-100%);
 }
 
 .switch label {
     cursor: pointer;
-    width: 48px;
+    width: 40px;
     height: 24px;
-    background: red;
+    background: var(--color-gray4);
     display: block;
     border-radius: 24px;
     position: relative;
@@ -36,8 +37,13 @@
     left: 3px;
     width: 18px;
     height: 18px;
-    background-color: gray;
+    background-color: var(--color-gray0);
     border-radius: 18px;
     transition: 0.3s;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.switch span {
+    margin-left: 5px;
+    font-size: 10px;
 }

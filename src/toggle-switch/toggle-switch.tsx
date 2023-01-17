@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ToggleSwitchProps } from "./toggle-switch.types";
 import css from './toggle-switch.module.scss';
 
-export const ToggleSwitch = ({ isChecked }: ToggleSwitchProps) => {
+export const ToggleSwitch = ({ isChecked, title }: ToggleSwitchProps) => {
 
     const [checked, setChecked] = useState(isChecked || false);
 
@@ -16,6 +16,7 @@ export const ToggleSwitch = ({ isChecked }: ToggleSwitchProps) => {
                 id='switch'
                 onChange={toggleValue} checked={checked} />
             <label htmlFor="switch"></label>
+            <span>{title}</span>
         </div>
     );
 };

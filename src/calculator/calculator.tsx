@@ -58,7 +58,7 @@ export const Calculator = () => {
     return (
         <div className={css.container}>
             <Result operations={operations.join('')} result={result} />
-            <ToggleSwitch />
+            <ToggleSwitch title='SWITCH TO DARK THEME' />
             <div className={css.buttonBox}>
                 {CALCULATOR_BTNS.flat().map((btn) => <Button key={btn} value={btn} onClick={onBtnClick} />)}
             </div>
