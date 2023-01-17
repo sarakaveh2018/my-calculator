@@ -1,15 +1,9 @@
-body {
-    min-height: 100vh;
-    place-items: center;
-    perspective: 1000px;
-    color: #7d8e96;
-}
-
 .container {
     width: 19rem;
     height: 40rem;
     border-radius: 10px;
-    background-color: #eeeff1;
+    color: var(--text-color-light);
+    background-color: var(--color-bg-light);
 }
 
 .buttonBox {
@@ -18,7 +12,7 @@ body {
     grid-template-rows: repeat(6, 1fr);
     gap: 0.5rem;
     padding: 0.75rem;
-    height: calc(100% - 230px);
-    background-color: #eeeff1;
-    border-radius: 0 0 10px 10px;
+    height: calc(100% - 274px);
 }
+
+@import './calculator.dark.module';

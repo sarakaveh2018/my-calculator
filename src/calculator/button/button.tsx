@@ -24,10 +24,10 @@ export const Button = ({ value, onClick }: ButtonProps): JSX.Element => {
         <div onClick={() =>
             onClick(value)} className={`${css.button} 
         ${value === "="
-                    ? `${css.equals} ${css.purple}` : value === "C"
-                        ? css.orange : value === "R" || value === "(" || value === ")" || value === '+-' || value === '%'
-                            ? css.lightOrange : value === "*" || value === "/" || value === '-' || value === '+'
-                                ? css.lightPurple : value === 'b'
-                                    ? css.lightGray : css.white}`}>{convertSymbol(value)}</div>
+                    ? `${css.equals}` : value === "C"
+                        ? css.clear : value === "R" || value === "(" || value === ")" || value === '+-' || value === '%'
+                            ? css.proSymbol : value === "*" || value === "/" || value === '-' || value === '+'
+                                ? css.mainSymbol : value === 'b'
+                                    ? css.backspace : css.numbers}`}>{convertSymbol(value)}</div>
     );
 }

@@ -16,6 +16,7 @@ export const Calculator = () => {
 
     const [operations, setOperations] = useState<Array<string | number>>([]);
     const [result, setResult] = useState('0');
+    const theme = 'dark';
 
     const AddToOperationList = (btn: string | number) => {
         const clone = [...operations];

@@ -1,0 +1,34 @@
+@media (prefers-color-scheme: dark) {
+  .equals {
+    color: var(--text-color-purple-dark);
+    background-color: var(--color-purple-dark);
+  }
+
+  .clear {
+    color: var(--text-color-orange-dark);
+    background-color: var(--color-orange-dark);
+    box-shadow: 2px 2px 4px var(--color-orange-dark);
+  }
+
+  .proSymbol {
+    background-color: var(--color-lightOrange-dark);
+    color: var(--text-color-lightOrange-dark);
+    box-shadow: 2px 2px 4px var(--color-lightOrange-dark);
+  }
+
+  .mainSymbol {
+    background-color: var(--color-lightPurple-dark);
+    color: var(--text-color-lightPurple-dark);
+    box-shadow: 2px 2px 4px var(--color-lightPurple-dark);
+  }
+
+  .backspace {
+    background-color: var(--color-gray3);
+    box-shadow: 2px 2px 4px var(--color-gray3);
+  }
+
+  .numbers {
+    background-color: var(--color-gray2);
+    box-shadow: 2px 2px 4px var(--color-gray2);
+  }
+}

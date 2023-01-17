@@ -14,38 +14,37 @@
     grid-row: 5 / span 2;
     grid-column: 4 / 5;
     border-radius: 50px;
-}
-
-.orange {
-    background-color: #feb92d;
-    color: white;
-    box-shadow: 2px 2px 4px #ebd5ab;
-}
-
-.lightOrange {
-    background-color: #f5f1e5;
-    color: #d0bd91;
-    box-shadow: 2px 2px 4px #e6d6ba;
-}
-
-.lightPurple {
-    background-color: #e1d5e9;
-    color: #530c74;
-    box-shadow: 2px 2px 4px #cab3e0;
-}
-
-.purple {
-    background-color: #9d2cf5;
-    color: #f0e7fe;
+    background-color: var(--color-purple-light);
+    color: var(--text-color-purple-light);
     box-shadow: 2px 2px 4px #9d5cd2;
 }
 
-.white {
-    background-color: #f8f9fa;
+.clear {
+    background-color: var(--color-orange-light);
+    color: var(--text-color-orange-light);
+    box-shadow: 2px 2px 4px #ebd5ab;
+}
+
+.proSymbol {
+    background-color: var(--color-lightOrange-light);
+    color: var(--text-color-lightOrange-light);
+    box-shadow: 2px 2px 4px #e6d6ba;
+}
+
+.mainSymbol {
+    background-color: var(--color-lightPurple-light);
+    color: var(--text-color-lightPurple-light);
+    box-shadow: 2px 2px 4px #cab3e0;
+}
+
+.numbers {
+    background-color: var(--color-gray0);
     box-shadow: 2px 2px 4px #d6d9dc;
 }
 
-.lightGray {
-    background-color: #e4e7eb;
+.backspace {
+    background-color: var(--color-gray1);
     box-shadow: 2px 2px 4px #d3d5d8;
 }
+
+@import './button.dark.module';
