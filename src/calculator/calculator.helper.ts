@@ -18,5 +18,6 @@ export const calculateResult = (values: Array<string | number>): string => {
     if (typeof clone.at(-1) === 'string') {
         clone.pop();
     }
-    return JSON.stringify(eval(clone.join('')));
+    const evaluated = eval(clone.join('')).toFixed(4);
+    return evaluated;
 }

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { ToggleSwitchProps } from "./toggle-switch.types";
 import css from './toggle-switch.module.scss';
+import { useEffect, useState } from "react";
+import { ToggleSwitchProps } from "./toggle-switch.types";
 
-export const ToggleSwitch = ({ isChecked, title }: ToggleSwitchProps) => {
+export const ToggleSwitch = ({ isChecked }: ToggleSwitchProps) => {
 
     const [checked, setChecked] = useState(isChecked || false);
 
@@ -10,13 +10,22 @@ export const ToggleSwitch = ({ isChecked, title }: ToggleSwitchProps) => {
         setChecked(e.currentTarget.checked);
     }
 
+
+    useEffect(() => {
+        if (checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    });
+
     return (
         <div className={css.switch}>
             <input type="checkbox"
                 id='switch'
                 onChange={toggleValue} checked={checked} />
             <label htmlFor="switch"></label>
-            <span>{title}</span>
+            <span>{`SWITCH TO ${checked ? 'LIGHT' : 'DARK'} THEME`}</span>
         </div>
     );
 };
